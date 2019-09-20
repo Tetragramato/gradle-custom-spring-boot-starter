@@ -1,0 +1,6 @@
+tetragramato:
+  http:
+    enabled: true
+    headers:
+      header-toto: titi
+      head: motor

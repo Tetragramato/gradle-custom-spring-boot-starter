@@ -1,0 +1,46 @@
+import org.springframework.boot.gradle.plugin.SpringBootPlugin
+
+plugins {
+    id 'java-library'
+    id 'idea'
+    id 'maven'
+    id 'org.springframework.boot' version '2.1.6.RELEASE' apply false
+}
+
+allprojects {
+    group 'com.tetragramato'
+    version '1.0.0-SNAPSHOT'
+
+    sourceCompatibility = 1.8
+
+    repositories {
+        mavenLocal()
+        jcenter()
+        mavenCentral()
+    }
+
+}
+
+subprojects {
+
+    apply plugin: 'java-library'
+    apply plugin: 'maven'
+    apply plugin: 'idea'
+    apply plugin: 'io.spring.dependency-management'
+
+    dependencyManagement {
+        imports {
+            mavenBom SpringBootPlugin.BOM_COORDINATES
+        }
+    }
+
+    dependencies {
+        testImplementation 'junit:junit:4.12'
+        testImplementation 'org.assertj:assertj-core:3.12.2'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    }
+}
+
+wrapper {
+    gradleVersion = '5.5.1'
+}
