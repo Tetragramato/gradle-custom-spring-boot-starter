@@ -28,7 +28,7 @@ public class CustomPropertiesTest {
     private Validator validator;
 
     @Configuration
-    static class ConfigSadaSecurityPropertiesTest {
+    static class ConfigCustomPropertiesTest {
 
         @Bean
         public Validator validator() {
