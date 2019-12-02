@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/Tetragramato/gradle-custom-spring-boot-starter/tree/master.svg?style=shield)](https://circleci.com/gh/Tetragramato/gradle-custom-spring-boot-starter/tree/master)
+[![CircleCI](https://circleci.com/gh/Tetragramato/gradle-custom-spring-boot-starter/tree/master.svg?style=shield)](https://circleci.com/gh/Tetragramato/gradle-custom-spring-boot-starter/tree/master) [![codecov](https://codecov.io/gh/Tetragramato/gradle-custom-spring-boot-starter/branch/master/graph/badge.svg)](https://codecov.io/gh/Tetragramato/gradle-custom-spring-boot-starter)
 # Gradle Custom Spring Boot starter and Autoconfigure
 
 Example for making custom spring boot Starter and Autoconfigure with `Gradle`.
