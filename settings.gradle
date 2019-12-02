@@ -1,4 +1,5 @@
 rootProject.name = 'gradle-custom-spring-boot-starter'
 include 'custom-spring-boot-autoconfigure'
 include 'custom-spring-boot-starter'
+include 'custom-spring-resttemplate'
 

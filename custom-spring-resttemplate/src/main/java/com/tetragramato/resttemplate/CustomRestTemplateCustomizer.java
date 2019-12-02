@@ -1,4 +1,4 @@
-package com.tetragramato.autoconfigure.http;
+package com.tetragramato.resttemplate;
 
 import org.springframework.boot.web.client.RestTemplateCustomizer;
 import org.springframework.web.client.RestTemplate;

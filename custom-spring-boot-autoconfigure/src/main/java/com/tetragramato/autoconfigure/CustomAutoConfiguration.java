@@ -1,6 +1,6 @@
 package com.tetragramato.autoconfigure;
 
-import com.tetragramato.autoconfigure.http.CustomRestTemplateCustomizer;
+import com.tetragramato.resttemplate.CustomRestTemplateCustomizer;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

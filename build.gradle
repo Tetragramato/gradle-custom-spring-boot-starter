@@ -5,6 +5,7 @@ plugins {
     id 'idea'
     id 'maven'
     id 'org.springframework.boot' version '2.1.6.RELEASE' apply false
+    id 'com.adarshr.test-logger' version '1.7.0'
 }
 
 allprojects {
@@ -27,6 +28,7 @@ subprojects {
     apply plugin: 'maven'
     apply plugin: 'idea'
     apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'com.adarshr.test-logger'
 
     dependencyManagement {
         imports {

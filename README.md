@@ -9,9 +9,9 @@ You can play with unit tests to see how it works, like the `ITCustomRestTemplate
 
 # How it works
 
-You can import in your project via Gradle the `custom-spring-boot-starter`, and just play with the `RestTemplate` since it's auto configured.
+You can import in your Spring Boot project via Gradle the `custom-spring-boot-starter`, and just play with the `RestTemplate` since it's auto configured.
 
-Add in your `application.xml` the following values :
+Add in your `application.yml` the following values :
 
 ```yaml
 tetragramato:
@@ -22,6 +22,6 @@ tetragramato:
       head: motor
 ```
 
-The `interceptor` in the `RestTemplate` will intercept all requests, and add each header described in `application.xml` before forward to the destination.
+The `interceptor` in the `RestTemplate` will intercept all requests, and add each header described in `application.yml` before forward to the destination.
 
 _This little project is here to demonstrate how we can build a custom spring boot starter and autoconfigure with Gradle._

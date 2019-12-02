@@ -1,4 +1,4 @@
-package com.tetragramato.autoconfigure.http;
+package com.tetragramato.resttemplate;
 
 import org.springframework.http.HttpRequest;
 import org.springframework.http.client.ClientHttpRequestExecution;
