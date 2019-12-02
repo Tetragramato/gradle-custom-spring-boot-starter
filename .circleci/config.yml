@@ -39,5 +39,5 @@ jobs:
           key: v1-dependencies-{{ checksum "build.gradle" }}
 
       # run tests!
-      - run: ./gradlew test
+      - run: ./gradlew test jacocoTestReport
       - run: ./gradlew assemble

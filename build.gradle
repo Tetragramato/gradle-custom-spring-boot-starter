@@ -6,6 +6,7 @@ plugins {
     id 'maven'
     id 'org.springframework.boot' version '2.1.6.RELEASE' apply false
     id 'com.adarshr.test-logger' version '1.7.0'
+    id 'jacoco'
 }
 
 allprojects {
@@ -29,6 +30,7 @@ subprojects {
     apply plugin: 'idea'
     apply plugin: 'io.spring.dependency-management'
     apply plugin: 'com.adarshr.test-logger'
+    apply plugin: 'jacoco'
 
     dependencyManagement {
         imports {
@@ -41,6 +43,15 @@ subprojects {
         testImplementation 'org.assertj:assertj-core:3.12.2'
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
     }
+
+    jacocoTestReport {
+        reports {
+            xml.enabled true
+            html.enabled false
+        }
+    }
+
+    check.dependsOn jacocoTestReport
 }
 
 wrapper {
