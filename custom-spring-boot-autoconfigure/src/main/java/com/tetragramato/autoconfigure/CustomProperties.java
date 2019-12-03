@@ -1,7 +1,6 @@
 package com.tetragramato.autoconfigure;
 
 import org.apache.commons.collections4.MapUtils;
-import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.validation.annotation.Validated;
@@ -53,13 +52,5 @@ public class CustomProperties {
             return !enabled || (MapUtils.isNotEmpty(headers));
         }
         return false;
-    }
-
-    @Override
-    public String toString() {
-        return new ToStringBuilder(this)
-                .append("enabled", enabled)
-                .append("headers", headers)
-                .toString();
     }
 }
