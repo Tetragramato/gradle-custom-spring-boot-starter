@@ -2,16 +2,17 @@ import org.springframework.boot.gradle.plugin.SpringBootPlugin
 
 plugins {
     id 'java-library'
-    id 'idea'
     id 'maven'
+    id 'maven-publish'
     id 'org.springframework.boot' version '2.1.6.RELEASE' apply false
     id 'com.adarshr.test-logger' version '1.7.0'
+    id 'com.jfrog.bintray' version '1.8.4' apply false
     id 'jacoco'
 }
 
 allprojects {
     group 'com.tetragramato'
-    version '1.0.0-SNAPSHOT'
+    version '1.0.0'
 
     sourceCompatibility = 1.8
 
@@ -27,10 +28,11 @@ subprojects {
 
     apply plugin: 'java-library'
     apply plugin: 'maven'
-    apply plugin: 'idea'
+    apply plugin: 'maven-publish'
     apply plugin: 'io.spring.dependency-management'
     apply plugin: 'com.adarshr.test-logger'
     apply plugin: 'jacoco'
+    apply plugin: 'com.jfrog.bintray'
 
     dependencyManagement {
         imports {
@@ -52,6 +54,61 @@ subprojects {
     }
 
     check.dependsOn jacocoTestReport
+
+    task sourcesJar(type: Jar, dependsOn: classes) {
+        classifier = 'sources'
+        from sourceSets.main.allSource
+    }
+
+    artifacts {
+        archives sourcesJar
+    }
+
+    ext {
+        pomConfig = {
+            licenses {
+                license {
+                    name "The MIT License"
+                    url "http://www.opensource.org/licenses/mit-license.php"
+                    distribution "repo"
+                }
+            }
+            developers {
+                developer {
+                    id "Tetragramato"
+                    name "Vivien Brissat"
+                    email "v.brissat@gmail.com"
+                }
+            }
+
+            scm {
+                url "https://github.com/Tetragramato/gradle-custom-spring-boot-starter"
+            }
+        }
+    }
+
+    bintray {
+        user = System.getProperty("bintray.user")
+        key = System.getProperty("bintray.key")
+        publications = ['mavenPublication']
+        pkg {
+            repo = 'gradle-custom-spring-boot-starter'
+            name = 'gradle-custom-spring-boot-starter'
+            userOrg = user
+            licenses = ['MIT']
+            labels = ['Spring', 'starter', 'java', 'gradle']
+            vcsUrl = 'https://github.com/Tetragramato/gradle-custom-spring-boot-starter.git'
+            version {
+                name = project.version
+                desc = "build ${buildNumber}"
+                released = new Date()
+            }
+            override = true
+            publish = true
+        }
+    }
+
+
 }
 
 wrapper {

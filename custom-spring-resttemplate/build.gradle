@@ -4,3 +4,24 @@ dependencies {
 
     testImplementation 'org.springframework.boot:spring-boot-starter-web'
 }
+
+publishing {
+    publications {
+        mavenPublication(MavenPublication) {
+            from components.java
+            groupId 'com.tetragramato'
+            artifactId 'custom-spring-boot-resttemplate'
+            version project.version
+            artifact sourcesJar {
+                classifier "sources"
+            }
+            pom.withXml {
+                def root = asNode()
+                root.appendNode('description', 'Custom starter')
+                root.appendNode('name', 'custom-spring-boot-resttemplate')
+                root.appendNode('url', 'https://github.com/Tetragramato/gradle-custom-spring-boot-starter/tree/master/custom-spring-resttemplate')
+                root.children().last() + pomConfig
+            }
+        }
+    }
+}

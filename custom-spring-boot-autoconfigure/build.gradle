@@ -17,3 +17,24 @@ dependencies{
     testImplementation 'javax.el:javax.el-api:3.0.0'
     testImplementation 'org.glassfish:javax.el:3.0.0'
 }
+
+publishing {
+    publications {
+        mavenPublication(MavenPublication) {
+            from components.java
+            groupId 'com.tetragramato'
+            artifactId 'custom-spring-boot-autoconfigure'
+            version project.version
+            artifact sourcesJar {
+                classifier "sources"
+            }
+            pom.withXml {
+                def root = asNode()
+                root.appendNode('description', 'Custom autoconfigure')
+                root.appendNode('name', 'custom-spring-boot-autoconfigure')
+                root.appendNode('url', 'https://github.com/Tetragramato/gradle-custom-spring-boot-starter/tree/master/custom-spring-boot-autoconfigure')
+                root.children().last() + pomConfig
+            }
+        }
+    }
+}
