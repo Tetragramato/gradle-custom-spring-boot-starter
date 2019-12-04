@@ -37,4 +37,4 @@ jobs:
       - run: ./gradlew test jacocoTestReport
       - run: bash <(curl -s https://codecov.io/bash)
       - run: ./gradlew assemble
-      - run: ./gradlew bintrayUpload -x test -Dbintray.user=$BINTRAY_USER -Dbintray.key=$BINTRAY_KEY -Dbuild.number=$CIRCLE_BUILD_NUM
+      - run: ./gradlew bintrayUpload -Dbintray.user=$BINTRAY_USER -Dbintray.key=$BINTRAY_KEY -Dbuild.number=$CIRCLE_BUILD_NUM

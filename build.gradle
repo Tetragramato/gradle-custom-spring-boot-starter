@@ -100,7 +100,7 @@ subprojects {
             vcsUrl = 'https://github.com/Tetragramato/gradle-custom-spring-boot-starter.git'
             version {
                 name = project.version
-                desc = "build ${buildNumber}"
+                desc = "build ${System.getProperty("build.number")}"
                 released = new Date()
             }
             override = true
